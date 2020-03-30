@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PiController {
 
-    private PiCaculator caculator;
+    private PiCalculator calculator;
 
-    public PiController(PiCaculator caculator) {
-        this.caculator = caculator;
+    public PiController(PiCalculator caculator) {
+        this.calculator = caculator;
     }
 
     @GetMapping("/login")
@@ -31,7 +31,7 @@ public class PiController {
         }
 
         long startTime = System.currentTimeMillis();
-        this.caculator.calculatePi(10_000_000);
+        this.calculator.calculatePi(10_000_000);
         long endTime = System.currentTimeMillis();
         return ResponseEntity.ok(Long.valueOf(endTime - startTime));
     }

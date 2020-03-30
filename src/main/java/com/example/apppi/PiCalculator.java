@@ -4,7 +4,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PiCaculator {
+public class PiCalculator {
 
   @Cacheable("pi")
   public double calculatePi(double n) {
