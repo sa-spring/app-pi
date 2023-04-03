@@ -7,7 +7,7 @@ import scala.concurrent.duration._
 class GatlingTestSimulation extends Simulation {
 
   val httpProtocol = http
-    .baseUrl("http://localhost:8080")
+    .baseUrl("http://localhost:8090")
     .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
     .doNotTrackHeader("1")
     .acceptLanguageHeader("en-US,en;q=0.5")
@@ -20,5 +20,5 @@ class GatlingTestSimulation extends Simulation {
         .get("/pi")
     )
 
-  setUp(scn.inject(atOnceUsers(100)).protocols(httpProtocol))
+  setUp(scn.inject(atOnceUsers(10000)).protocols(httpProtocol))
 }

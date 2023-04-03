@@ -1,11 +1,11 @@
 package com.example.apppi;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PiController {
@@ -26,9 +26,9 @@ public class PiController {
     @GetMapping("/pi")
     ResponseEntity<Long> pi(HttpSession session) {
         System.out.println("pi " + session.getId());
-        if (session.getAttribute("login") == null || !(boolean) (session.getAttribute("login"))) {
-            return new ResponseEntity<Long>(-1L, HttpStatus.UNAUTHORIZED);
-        }
+        // if (session.getAttribute("login") == null || !(boolean) (session.getAttribute("login"))) {
+        //     return new ResponseEntity<Long>(-1L, HttpStatus.UNAUTHORIZED);
+        // }
 
         long startTime = System.currentTimeMillis();
         this.calculator.calculatePi(10_000_000);
